@@ -7,8 +7,6 @@ proxy:
     container-backend: docker
     docker:
         url: "unix:///var/run/docker.sock"
-        internal-networking: true
-        network: sp-net
 
     users:
         - name: jack
@@ -21,3 +19,5 @@ proxy:
           description: "Démo shinyproxy::run_01_hello()"
           container-image: openanalytics/shinyproxy-demo
           container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+          container-network-mode: host
+          port: 3838
