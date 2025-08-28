@@ -8,6 +8,7 @@ proxy:
     docker:
         url: "unix:///var/run/docker.sock"
         internal-networking: true
+        network: sp-net
 
     users:
         - name: jack
