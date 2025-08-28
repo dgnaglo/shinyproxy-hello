@@ -8,8 +8,8 @@ proxy:
     docker:
         url: "unix:///var/run/docker.sock"
         internal-networking: true
-        container-network: sp-net # réseau user-defined
-        container-wait-time: 60000 # + de temps au 1er pull
+        container-network: sp-net
+        container-wait-time: 60000
 
     users:
         - name: jack
@@ -22,5 +22,5 @@ proxy:
           description: "Démo shinyproxy::run_01_hello()"
           container-image: openanalytics/shinyproxy-demo
           container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
-          container-name: hello-app # hostname stable
-          container-network: sp-net # assure l’attache côté app
+          container-name: hello-app # <- hostname stable
+          container-network: sp-net # <- le même réseau que ShinyProxy
